@@ -1370,7 +1370,7 @@ yyreduce:
 
 /* Line 1455 of yacc.c  */
 #line 40 "parser.y"
-    {printf("Analisi completado con exiito");;}
+    {printf("Analisis completado con exito");;}
     break;
 
   case 5:

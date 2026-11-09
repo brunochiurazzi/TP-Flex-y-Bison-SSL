@@ -46,6 +46,6 @@ ESPACIO [ \t\r\n]+
 
 
 void error_lexico(const char* lexema) {
-    printf("Error Léxico en línea %d: Carácter no reconocido '%s'\n", yylineno, lexema);
+    printf("Error Lexico en linea %d: Caracter no reconocido '%s'\n", yylineno, lexema);
 }
 
