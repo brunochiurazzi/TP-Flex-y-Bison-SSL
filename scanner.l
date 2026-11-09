@@ -1,7 +1,6 @@
 %{
 
-// Aca hay que linkear el parser cuando este hecho
-
+#include "parser.tab.h"
 #include <stdlib.h>
 #include <string.h>
 
@@ -9,8 +8,11 @@ void error_lexico(const char* lexema);
 
 %}
 
-%option noyywrap    // para solo procesar un archivo
-%option yylineno    // numero de linea
+/* para solo procesar un archivo */
+%option noyywrap  
+
+/* numero de linea */
+%option yylineno    
 
 
 DIGITO [0-9]
@@ -46,3 +48,4 @@ ESPACIO [ \t\r\n]+
 void error_lexico(const char* lexema) {
     printf("Error Léxico en línea %d: Carácter no reconocido '%s'\n", yylineno, lexema);
 }
+
