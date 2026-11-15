@@ -8,6 +8,7 @@
 extern int yylex();
 extern int yylineno;              // extern porque se generan en el archivo flex
 extern char* yytext;
+extern FILE *yyin; // archivo a ejecutar 
 void yyerror(const char *s);
 
 
@@ -114,9 +115,16 @@ void yyerror(const char *s) {
     printf("Error Sintactico en linea %d: %s (cerca de '%s')\n", yylineno, s, yytext);
 } 
 
-
 int main(int argc, char** argv) {
+    if (argc > 1) {
+        yyin = fopen(argv[1], "r");
+        if (!yyin) {
+            printf("No se pudo abrir el archivo %s\n", argv[1]);
+            return 1;
+        }
+    }
     yyparse();
+    if (yyin && yyin != stdin) fclose(yyin);
     return 0;
 }
 
